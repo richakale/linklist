@@ -1,0 +1,45 @@
+class Node
+{
+    int data;
+    Node next;
+    Node(int d)
+    {
+        data = d;
+        next = null;
+    }
+}
+  
+public class LinkedList
+{
+    Node head; 
+    public void push(int newdata)
+    {
+        Node newnode = new Node(newdata);
+
+        newnode.next = head;
+
+        head = newnode;
+    }
+    public boolean search(Node head, int x)
+    {
+        if (head == null)
+            return false;
+
+        if (head.data == x)
+            return true;
+
+        return search(head.next, x);
+    }
+    public static void main(String args[])
+    {
+        LinkedList list = new LinkedList();
+        list.push(25);
+        list.push(53);
+        list.push(5);
+        list.push(1);
+        if (list.search(list.head, 83))
+            System.out.println("Yes");
+        else
+            System.out.println("No");
+    }
+}
