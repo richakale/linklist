@@ -1,0 +1,45 @@
+class Node
+{
+    int data;
+    Node next;
+    Node(int d)  { data = d;  next = null; }
+}
+
+class LinkedList
+{
+   Node head;  
+    public void push(int new_data)
+    {
+       Node newNode = new Node(new_data);
+  
+        newNode.next = head;
+ 
+        head = newNode;
+    }
+ 
+    public int getCount()
+    {
+        Node temp = head;
+        int count = 0;
+        while (temp != null)
+        {
+            count++;
+            temp = temp.next;
+        }
+        return count;
+    }
+ 
+       public static void main(String[] args)
+    {
+      
+        LinkedList list = new LinkedList();
+        list.push(1);
+        list.push(3);
+        list.push(1);
+        list.push(2);
+        list.push(1);
+ 
+        System.out.println("Count of nodes is " +
+                            list.getCount());
+    }
+}
